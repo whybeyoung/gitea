@@ -112,6 +112,16 @@ const (
 	RepositoryBroken                                  // repository is in a permanently broken state
 )
 
+// RepositoryType define the type of repositorty
+type RepositoryType int
+
+const (
+	ForModel   = 0
+	ForDataset = 1
+	ForDemo    = 2
+	Other      = 3
+)
+
 // Repository represents a git repository.
 type Repository struct {
 	ID                  int64 `xorm:"pk autoincr"`
@@ -145,13 +155,13 @@ type Repository struct {
 	NumClosedActionRuns int `xorm:"NOT NULL DEFAULT 0"`
 	NumOpenActionRuns   int `xorm:"-"`
 
-	IsPrivate  bool `xorm:"INDEX"`
-	IsEmpty    bool `xorm:"INDEX"`
-	IsArchived bool `xorm:"INDEX"`
-	IsMirror   bool `xorm:"INDEX"`
-	*Mirror    `xorm:"-"`
-	Status     RepositoryStatus `xorm:"NOT NULL DEFAULT 0"`
-
+	IsPrivate              bool `xorm:"INDEX"`
+	IsEmpty                bool `xorm:"INDEX"`
+	IsArchived             bool `xorm:"INDEX"`
+	IsMirror               bool `xorm:"INDEX"`
+	*Mirror                `xorm:"-"`
+	Status                 RepositoryStatus  `xorm:"NOT NULL DEFAULT 0"`
+	RepoType               RepositoryType    `xorm:"NOT NULL DEFAULT 0"`
 	RenderingMetas         map[string]string `xorm:"-"`
 	DocumentRenderingMetas map[string]string `xorm:"-"`
 	Units                  []*RepoUnit       `xorm:"-"`

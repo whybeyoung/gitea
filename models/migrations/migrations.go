@@ -463,6 +463,10 @@ var migrations = []Migration{
 	NewMigration("Add exclusive label", v1_19.AddExclusiveLabel),
 
 	// Gitea 1.19.0 ends at v244
+
+	// Ailab Start at v244
+	// v244 -> v245
+	NewMigration("Add repoType to repository", v1_19.AddRepoTypeToRepositoryTable),
 }
 
 // GetCurrentDBVersion returns the current db version
