@@ -173,6 +173,7 @@ type CreateRepoOptions struct {
 	AutoInit       bool
 	Status         repo_model.RepositoryStatus
 	TrustModel     repo_model.TrustModelType
+	RepoType       repo_model.RepositoryType
 	MirrorInterval string
 }
 
@@ -213,6 +214,7 @@ func CreateRepository(doer, u *user_model.User, opts CreateRepoOptions) (*repo_m
 		TrustModel:                      opts.TrustModel,
 		IsMirror:                        opts.IsMirror,
 		DefaultBranch:                   opts.DefaultBranch,
+		RepoType:                        opts.RepoType,
 	}
 
 	var rollbackRepo *repo_model.Repository

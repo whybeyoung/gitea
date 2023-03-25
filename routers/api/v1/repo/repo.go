@@ -135,6 +135,7 @@ func Search(ctx *context.APIContext) {
 		Template:           util.OptionalBoolNone,
 		StarredByID:        ctx.FormInt64("starredBy"),
 		IncludeDescription: ctx.FormBool("includeDesc"),
+		RepositoryType:     repo_model.RepositoryType(ctx.FormInt("repoType")),
 	}
 
 	if ctx.FormString("template") != "" {
@@ -250,6 +251,7 @@ func CreateUserRepo(ctx *context.APIContext, owner *user_model.User, opt api.Cre
 		DefaultBranch: opt.DefaultBranch,
 		TrustModel:    repo_model.ToTrustModel(opt.TrustModel),
 		IsTemplate:    opt.Template,
+		RepoType:      repo_model.RepositoryType(opt.RepoType),
 	})
 	if err != nil {
 		if repo_model.IsErrRepoAlreadyExist(err) {

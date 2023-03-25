@@ -166,6 +166,8 @@ type SearchRepoOptions struct {
 	// - Don't show forks, when opts.Fork is OptionalBoolNone.
 	// - Do not display repositories that don't have a description, an icon and topics.
 	OnlyShowRelevant bool
+
+	RepositoryType RepositoryType
 }
 
 // SearchOrderBy is used to sort the result

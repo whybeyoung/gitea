@@ -15704,6 +15704,18 @@
           "type": "string",
           "x-go-name": "Readme"
         },
+        "repo_type": {
+          "description": "RepoType of the repository",
+          "type": "integer",
+          "format": "int64",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "x-go-name": "RepoType"
+        },
         "template": {
           "description": "Whether the repository is template",
           "type": "boolean",

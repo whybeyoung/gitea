@@ -134,6 +134,10 @@ type CreateRepoOption struct {
 	// TrustModel of the repository
 	// enum: default,collaborator,committer,collaboratorcommitter
 	TrustModel string `json:"trust_model"`
+
+	// RepoType of the repository
+	// enum: 0,1,2,3
+	RepoType int `json:"repo_type"`
 }
 
 // EditRepoOption options when editing a repository's properties

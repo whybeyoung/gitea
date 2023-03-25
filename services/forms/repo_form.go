@@ -50,6 +50,7 @@ type CreateRepoForm struct {
 	Avatar       bool
 	Labels       bool
 	TrustModel   string
+	RepoType     int
 }
 
 // Validate validates the fields

@@ -116,10 +116,10 @@ const (
 type RepositoryType int
 
 const (
-	ForModel   = 0
-	ForDataset = 1
-	ForDemo    = 2
-	Other      = 3
+	Other      = 0
+	ForModel   = 1
+	ForDataset = 2
+	ForDemo    = 3
 )
 
 // Repository represents a git repository.
